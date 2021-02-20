@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="user" class="training.bean.loader.domain.Student">
+        <property name="id" value="1" />
+        <property name="name" value="小王" />
+        <property name="age" value="22" />
+    </bean>
+    <bean id="student-by-constructor" class="training.bean.loader.domain.Student">
+        <constructor-arg value="1"/>
+        <constructor-arg value="小王"/>
+        <constructor-arg value="22"/>
+    </bean>
+    <bean id="student-by-static-method" class="training.bean.loader.domain.Student" factory-method="create"/>
+
+    <bean id="defaultStudentFactory" class="training.bean.loader.factory.DefaultStudentFactory"/>
+    <bean id="student-by-instance-method" class="training.bean.loader.domain.Student" factory-bean="defaultStudentFactory" factory-method="create"/>
+    <bean id="student-by-factory-bean" class="training.bean.loader.factory.StudentFactoryBean" />
+
+    <bean id="studentFactoryServiceLoader" class="org.springframework.beans.factory.serviceloader.ServiceLoaderFactoryBean">
+        <property name="serviceType" value="training.bean.loader.factory.StudentFactory"/>
+    </bean>
+</beans>
+

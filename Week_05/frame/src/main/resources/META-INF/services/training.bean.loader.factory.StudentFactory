@@ -1,0 +1,2 @@
+training.bean.loader.factory.DefaultStudentFactory
+training.bean.loader.factory.BuilderStudentFactory

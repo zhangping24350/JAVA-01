@@ -1,0 +1,8 @@
+server:
+  port: 7003
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:h2:mem:test
+    username: sa
+    password: 123456
